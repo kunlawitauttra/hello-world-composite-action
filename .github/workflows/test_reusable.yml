@@ -1,0 +1,26 @@
+name: test_reusable
+on:
+  workflow_call:
+    inputs:
+
+      test_inputs:
+        required: true
+        type: string
+        
+      RUNS_ON:
+        required: true
+        type: string
+
+jobs:
+  test-job:
+    name: test-job-name
+    runs-on: ${{ inputs.RUNS_ON }}
+    steps:
+    
+      - name: "Checkout pipelines"
+        uses: actions/checkout@v3 
+
+      - name: "Common Setup"
+        uses: ./.github/actions/common-setup
+        with:
+          TEST_INPUTS: ${{ inputs.test_inputs }}
