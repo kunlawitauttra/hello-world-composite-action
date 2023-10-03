@@ -14,11 +14,6 @@ runs:
     - name: List working directory
       shell: bash
       run: ls
-        
-    - name: Set up environment variables
-      run: |
-        echo "TEST_SECRET=${{ secrets.TEST_SECRET }}" >> $GITHUB_ENV
-      shell: bash
 
     - name: test_inputs
       shell: bash
