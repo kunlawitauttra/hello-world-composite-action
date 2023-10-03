@@ -24,4 +24,4 @@ runs:
       - name: test-secret
         shell: bash
         run: |
-          echo ${{ secret.TEST_SECRET }}
+          echo ${{ secrets.TEST_SECRET }}
