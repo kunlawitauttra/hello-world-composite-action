@@ -12,6 +12,7 @@ runs:
       uses: actions/checkout@v3
 
     - name: List working directory
+      shell: bash
       run: ls
         
     - name: Set up environment variables
@@ -20,9 +21,11 @@ runs:
       shell: bash
 
     - name: test_inputs
+      shell: bash
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
     - name: test-secret
+      shell: bash
       run: |
         echo "Secret value: $TEST_SECRET"
