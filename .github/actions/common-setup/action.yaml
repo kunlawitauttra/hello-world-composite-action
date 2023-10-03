@@ -1,3 +1,11 @@
+name: "test-composit"
+description: "test composit"
+inputs:
+
+  TEST_INPUTS:
+    required: true
+    description: "test inputs"
+    
 runs:
   using: "composite"
   steps:
