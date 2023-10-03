@@ -25,7 +25,7 @@ runs:
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
-    - name: test-secret
-      shell: bash
-      run: |
-        echo "Secret value: $TEST_SECRET"
+    # - name: test-secret
+    #   shell: bash
+    #   run: |
+    #     echo "Secret value: $TEST_SECRET"
