@@ -1,0 +1,19 @@
+runs:
+  using: "composite"
+  steps:
+      - name: Checkout pipelines
+        uses: actions/checkout@v3
+
+      - name: List working directory
+        shell: bash
+        run: ls
+        
+      - name: test_inputs
+        shell: bash
+        run: |
+          echo ${{ inputs.TEST_INPUTS }}
+
+      - name: test-secret
+        shell: bash
+        run: |
+          echo ${{ secret.TEST_SECRET }}
