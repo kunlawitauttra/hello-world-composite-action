@@ -1,7 +1,6 @@
 name: "test-composit"
 description: "test composit"
 inputs:
-
   TEST_INPUTS:
     required: true
     description: "test inputs"
@@ -9,19 +8,24 @@ inputs:
 runs:
   using: "composite"
   steps:
-      - name: Checkout pipelines
-        uses: actions/checkout@v3
+    - name: Checkout pipelines
+      uses: actions/checkout@v3
 
-      - name: List working directory
-        shell: bash
-        run: ls
+    - name: List working directory
+      shell: bash
+      run: ls
         
-      - name: test_inputs
-        shell: bash
-        run: |
-          echo ${{ inputs.TEST_INPUTS }}
+    - name: Set up environment variables
+      run: |
+        echo "TEST_SECRET=${{ secrets.TEST_SECRET }}" >> $GITHUB_ENV
+      shell: bash
 
-      - name: test-secret
-        shell: bash
-        run: |
-          echo ${{ secret.TEST_SECRET }}
+    - name: test_inputs
+      shell: bash
+      run: |
+        echo ${{ inputs.TEST_INPUTS }}
+
+    - name: test-secret
+      shell: bash
+      run: |
+        echo $TEST_SECRET
