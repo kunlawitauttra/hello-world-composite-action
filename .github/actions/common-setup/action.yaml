@@ -20,9 +20,7 @@ runs:
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
-    - name: Use the secret
+    - name: test secret
       shell: bash
       run: |
-        echo "Secret value is $TEST_SECRET"
-      env:
-        TEST_SECRET: ${{ secrets.TEST_SECRET }}
+        echo ${{ secrets.TEST_SECRET }}
