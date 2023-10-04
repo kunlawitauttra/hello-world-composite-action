@@ -20,7 +20,11 @@ runs:
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
+    # - name: test secret
+    #   shell: bash
+    #   run: |
+    #     echo "${{ secrets.TEST_SECRET }}"
     - name: test secret
       shell: bash
       run: |
-        echo "${{ secrets.TEST_SECRET }}"
+        echo "Using secret: ${{ inputs.TEST_SECRET }}"
