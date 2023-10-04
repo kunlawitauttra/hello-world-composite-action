@@ -21,4 +21,8 @@ runs:
         echo ${{ inputs.TEST_INPUTS }}
 
     - name: Use the secret
-      run: echo "Secret value is ${{ secrets.TEST_SECRET }}"
+      shell: bash
+      run: |
+        echo "Secret value is $TEST_SECRET"
+      env:
+        TEST_SECRET: ${{ secrets.TEST_SECRET }}
