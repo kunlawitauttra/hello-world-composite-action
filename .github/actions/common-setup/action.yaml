@@ -4,6 +4,9 @@ inputs:
   TEST_INPUTS:
     required: true
     description: "test inputs"
+
+env:
+  MY_SECRET: "${{ secrets.TEST_SECRET }}"
     
 runs:
   using: "composite"
@@ -20,7 +23,7 @@ runs:
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
-    - name: test-secret
-      shell: bash
-      run: |
-        echo test-secret: ${{ secrets.TEST_SECRET }}
+    # - name: test-secret
+    #   shell: bash
+    #   run: |
+    #     echo test-secret: ${{ secrets.TEST_SECRET }}
