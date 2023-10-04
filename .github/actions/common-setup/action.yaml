@@ -21,4 +21,4 @@ runs:
         echo ${{ inputs.TEST_INPUTS }}
 
     - name: Use the secret
-      run: echo "Secret value is ${{ secrets.YOUR_SECRET_NAME }}"
+      run: echo "Secret value is ${{ secrets.TEST_SECRET }}"
