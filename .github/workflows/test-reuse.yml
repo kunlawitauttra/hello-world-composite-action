@@ -1,4 +1,4 @@
-name: _test-reuse
+name: test-reuse
 on:
   workflow_dispatch:
   
