@@ -1,6 +1,9 @@
 # name: test-reuse pust to main branch
 # on:
 #   workflow_dispatch:
+name: _test-reuse
+on:
+  workflow_dispatch:
   
 #     inputs:
 #       test_inputs_reuse:
