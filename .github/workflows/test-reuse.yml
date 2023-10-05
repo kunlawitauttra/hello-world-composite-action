@@ -1,21 +1,51 @@
-name: _test-reuse pust to main branch 08
-on:
-  workflow_dispatch:
+# name: test-reuse pust to main branch
+# on:
+#   workflow_dispatch:
   
-    inputs:
-      test_inputs_reuse:
-        description: "paste values to test_reusable"
-        required: true
-        default: "from reuse test-reuse"
+#     inputs:
+#       test_inputs_reuse:
+#         description: "paste values to test_reusable"
+#         required: true
+#         default: "from reuse test-reuse"
 
-      run-on:
-        description: "paste run-on to test_reusable"
-        required: true
-        default: "ubuntu-latest"
+#       run-on:
+#         description: "paste run-on to test_reusable"
+#         required: true
+#         default: "ubuntu-latest"
     
+# jobs:
+#   call-workflow-test-reusable:
+#     uses: ./.github/workflows/test_reusable.yml
+#     with:
+#       test_inputs: ${{ inputs.test_inputs_reuse }}
+#       RUNS_ON: ${{ inputs.run-on }}
+
+name: _test_reuse_with_matrix
+
+on:
+  # repository_dispatch:
+  #   types: [dev-myais-node-admin]
+  workflow_dispatch:
+    inputs:
+      test_inputs:
+        description: test inputs 
+        required: true
+        default: "test inputs from reuse pipelines"
+      run-on:
+        description: version of run-on include 'ubuntu-20.04' 'ubuntu-22.04'
+        required: true
+        default: "['ubuntu-20.04', 'ubuntu-22.04']"
+
+
 jobs:
-  call-workflow-test-reusable:
+  call-workflow-deploy-microservice:
+    strategy:
+      fail-fast: false
+      matrix:
+        region: ${{ (inputs.run-on && fromJSON(inputs.run-on)) || fromJSON('["ubuntu-20.04", "ubuntu-22.04"]')  }}
     uses: ./.github/workflows/test_reusable.yml
     with:
-      test_inputs: ${{ inputs.test_inputs_reuse }}
-      RUNS_ON: ${{ inputs.run-on }}
+      RUNS_ON: ${{ matrix.region }}
+      test_inputs: ${{ inputs.test_inputs }}
+
+      
