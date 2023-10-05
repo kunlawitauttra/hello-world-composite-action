@@ -44,6 +44,6 @@ jobs:
     uses: ./.github/workflows/test_reusable.yml
     with:
       RUNS_ON: ${{ matrix.run-on }}
-      # test_inputs: ${{ inputs.test_inputs }}
+      test_inputs: ${{ inputs.test_inputs }}
 
       
