@@ -10,9 +10,9 @@ runs:
   steps:
     - name: Checkout pipelines
       uses: actions/checkout@v4
-      with:
-        ref: ${{ secrets.BRANCH }}
-        # ref: test
+      # with:
+      #   ref: ${{ secrets.BRANCH }}
+      #   ref: test
 
     - name: List working directory
       shell: bash
@@ -22,5 +22,11 @@ runs:
       shell: bash
       run: |
         echo ${{ inputs.TEST_INPUTS }}
+
+    # - name: test secret
+    #   shell: bash
+    #   run: |
+    #     echo ${{ secrets.TEST_SECRET }}
+
 
 
