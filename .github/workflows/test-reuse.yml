@@ -20,7 +20,7 @@
 #       test_inputs: ${{ inputs.test_inputs_reuse }}
 #       RUNS_ON: ${{ inputs.run-on }}
 
-name: _test_reuse_with_matrix_02
+name: _test_reuse_with_matrix_remote03
 
 on:
   workflow_dispatch:
