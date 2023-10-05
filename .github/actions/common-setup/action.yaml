@@ -20,8 +20,8 @@ runs:
       run: |
         echo ${{ inputs.TEST_INPUTS }}
 
-    - name: test secret
-      shell: bash
-      run: |
-        secret: ${{ secrets.TEST_SECRET }}
+    # - name: test secret
+    #   shell: bash
+    #   run: |
+    #     secret: ${{ secrets.TEST_SECRET }}
 
