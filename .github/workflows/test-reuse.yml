@@ -43,7 +43,7 @@ jobs:
         region: ${{ (inputs.run-on && fromJSON(inputs.run-on)) || fromJSON('["ubuntu-20.04", "ubuntu-22.04"]')  }}
     uses: ./.github/workflows/test_reusable.yml
     with:
-      RUNS_ON: ${{ matrix.region }}
+      RUNS_ON: ${{ matrix.run-on }}
       test_inputs: ${{ inputs.test_inputs }}
 
       
