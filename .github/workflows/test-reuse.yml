@@ -1,9 +1,6 @@
-# name: test-reuse pust to main branch
+# name: _test-reuse
 # on:
 #   workflow_dispatch:
-name: _test-reuse
-on:
-  workflow_dispatch:
   
 #     inputs:
 #       test_inputs_reuse:
@@ -26,8 +23,6 @@ on:
 name: _test_reuse_with_matrix
 
 on:
-  # repository_dispatch:
-  #   types: [dev-myais-node-admin]
   workflow_dispatch:
     inputs:
       test_inputs:
