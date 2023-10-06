@@ -1,4 +1,4 @@
-change on test branch and will push to main branch
+change on main branch will push to test branch
 # name: _test-reuse
 # on:
 #   workflow_dispatch:
