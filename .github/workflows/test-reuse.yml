@@ -1,4 +1,4 @@
-change on local test will push to main
+change on local main will push to remote test
 # name: _test-reuse
 # on:
 #   workflow_dispatch:
