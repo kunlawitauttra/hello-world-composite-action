@@ -1,28 +1,4 @@
-# change on local main will push to remote test
-# name: _test-reuse
-# on:
-#   workflow_dispatch:
-  
-#     inputs:
-#       test_inputs_reuse:
-#         description: "paste values to test_reusable"
-#         required: true
-#         default: "from reuse test-reuse"
-
-#       run-on:
-#         description: "paste run-on to test_reusable"
-#         required: true
-#         default: "ubuntu-latest"
-    
-# jobs:
-#   call-workflow-test-reusable:
-#     uses: ./.github/workflows/test_reusable.yml
-#     with:
-#       test_inputs: ${{ inputs.test_inputs_reuse }}
-#       RUNS_ON: ${{ inputs.run-on }}
-
-name: _test_reuse_with_matrix from remote main01
-
+name: _test_reuse
 on:
   workflow_dispatch:
     inputs:
