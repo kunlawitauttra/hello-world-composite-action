@@ -25,7 +25,7 @@ jobs:
       - name: Dispatch by workflow_dispatch
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
-          echo "echo "Action by workflow_dispatch"
+          echo "Action by workflow_dispatch"
 
       - name: "Checkout pipelines"
         uses: actions/checkout@v3 
