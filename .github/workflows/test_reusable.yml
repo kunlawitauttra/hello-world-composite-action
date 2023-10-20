@@ -10,12 +10,19 @@ on:
       RUNS_ON:
         required: true
         type: string
+
+env:
+  ENVIRONMENT: ${{ inputs.test_inputs }}
         
 jobs:
   test-job:
     name: test-job-name
     runs-on: ${{ inputs.RUNS_ON }}
     steps:
+
+      - name: Dispatch env
+        run: |
+          echo ${{ env.ENVIRONMENT }}
 
       - name: Dispatch by repository_dispatch
         if: ${{ github.event_name == 'repository_dispatch' }}
