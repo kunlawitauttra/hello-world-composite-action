@@ -1,5 +1,7 @@
 name: test_reusable
 on:
+  repository_dispatch:
+    types: [my-custom-event]
   workflow_call:
     inputs:
 
@@ -16,7 +18,17 @@ jobs:
     name: test-job-name
     runs-on: ${{ inputs.RUNS_ON }}
     steps:
-    
+
+      - name: Set GITHUB_ENV
+        if: ${{ github.event_name == 'repository_dispatch' }}
+        run: |
+          echo "Action by repository_dispatch"
+
+      - name: Set GITHUB_ENV
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "echo "Action by workflow_dispatch"
+
       - name: "Checkout pipelines"
         uses: actions/checkout@v3 
 
