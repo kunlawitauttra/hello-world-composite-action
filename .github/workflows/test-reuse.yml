@@ -1,5 +1,7 @@
 name: _test_reuse
 on:
+  repository_dispatch:
+    types: [my-custom-event]
   workflow_dispatch:
     inputs:
       test_inputs:
